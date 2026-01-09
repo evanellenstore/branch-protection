@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OWNER="evanellenstore"
-REPO="inventory-service"
+REPO="branch-protection"
 APPROVALS=1
 CI_CONTEXTS=()  # Example: ("build" "test")
 DRY_RUN=false
