@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "db351975-b6b8-4e86-9272-d7a2a23bc041",
+		"name": "9.cloud-gateway-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27965120"
+	},
+	"item": [
+		{
+			"name": "1.auth-service",
+			"item": [
+				{
+					"name": "Login (Get JWT Token)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"diya\",\n  \"password\": \"admin123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate JWT Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3Njg0NDU2ODUsImV4cCI6MTc2ODQ0OTI4NX0.6HBfndcaEv41If2teoWTYU_hdvf0f4pfr79EEZKI0-w",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2040/auth/validate"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2.product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NTU5ODMsImV4cCI6MTc2ODQ1OTU4M30.kj4acHrLGW7yhPSk8u1Kyd6g8a-8e9zuaeYQI6RPUa0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"sku\": \"SKU-1002\",\n  \"name\": \"Parle-G Biscuit\",\n  \"description\": \"Glucose biscuits 250g\",\n  \"category\": \"BISCUITS\",\n  \"brand\": \"PARLE\",\n  \"unit\": \"PCS\",\n  \"price\": 25.0,\n  \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/products/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"brand\": \"PARLE\",\n        \"category\": \"BISCUITS\",\n        \"description\": \"Glucose biscuits 250g\",\n        \"id\": 2,\n        \"name\": \"Parle-G Biscuit\",\n        \"price\": 25.0,\n        \"sku\": \"SKU-1001\",\n        \"status\": \"ACTIVE\",\n        \"unit\": \"PCS\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/products/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/products/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3.inventory-service",
+			"item": [
+				{
+					"name": "Adjust Stock OUT (Damage/Loss)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 20,\n  \"type\": \"OUT\",\n  \"remarks\": \"Sold items\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/inventory/1/adjust"
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Stock (Order placed)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 10,\n  \"referenceId\": \"ORDER-1001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/inventory/1/reserve"
+					},
+					"response": []
+				},
+				{
+					"name": "Add / Adjust Initial Stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 100,\n  \"type\": \"IN\",\n  \"remarks\": \"Initial stock\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/inventory/1/adjust"
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Stock (Order placed)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NjM5NjksImV4cCI6MTc2ODQ2NzU2OX0.rzrUPcDTPP01e0XuucSWUF6MPYvzbYOFRphfc4752ZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 10,\n  \"referenceId\": \"ORDER-1001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/inventory/1/release"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzA1NTYsImV4cCI6MTc2ODQ3NDE1Nn0.3dBKCnbrvTu1SyBUDDgl5YYuhNbb2Zs9BtVl2jrJ_Pc",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/inventory/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.purchare-service",
+			"item": [
+				{
+					"name": "Create Purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXlhIiwicm9sZXMiOlsiTUFOQUdFUiJdLCJpYXQiOjE3Njg0Nzg0MDYsImV4cCI6MTc2ODQ4MjAwNn0.ZMiIx6dEUeech3OUsON8BfgxyK_cUqUaCI2RniQ_OiM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": 1,\n  \"quantity\": 10,\n  \"unitPrice\": 10.00\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/purchases"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Purchases",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXlhIiwicm9sZXMiOlsiTUFOQUdFUiJdLCJpYXQiOjE3Njg0Nzg0MDYsImV4cCI6MTc2ODQ4MjAwNn0.ZMiIx6dEUeech3OUsON8BfgxyK_cUqUaCI2RniQ_OiM",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/purchases"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5.billing-service",
+			"item": [
+				{
+					"name": "Generate Bill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0Nzc1NTUsImV4cCI6MTc2ODQ4MTE1NX0.23SOjBifZl-mUI9W63RLIW5NLqiiuhe-4eT-mfFJorU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"purchaseId\": 15\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/billings"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bills",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2013/billings"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bill by Bill ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2013/billings/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bill by Purchase ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2013/billings/purchase/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6.repoting-service",
+			"item": [
+				{
+					"name": "report all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/report"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7.notification-service",
+			"item": [
+				{
+					"name": "notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"INVENTORY_LOW\",\n  \"title\": \"Low Stock Alert\",\n  \"message\": \"Product 1 stock is below minimum level\",\n  \"recipient\": \"admin@store.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:2020/notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Notifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2020/notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notification By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2020/notifications/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8.user-service",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0Nzc1NTUsImV4cCI6MTc2ODQ4MTE1NX0.23SOjBifZl-mUI9W63RLIW5NLqiiuhe-4eT-mfFJorU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"ellen\",\n  \"email\": \"ellenverma28@gmail.com\",\n  \"password\": \"admin123\",\n  \"role\": \"CASHIER\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0Nzc1NTUsImV4cCI6MTc2ODQ4MTE1NX0.23SOjBifZl-mUI9W63RLIW5NLqiiuhe-4eT-mfFJorU",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:9090/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0Nzc1NTUsImV4cCI6MTc2ODQ4MTE1NX0.23SOjBifZl-mUI9W63RLIW5NLqiiuhe-4eT-mfFJorU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"cashier1\",\n  \"email\": \"cashier@store.com\",\n  \"password\": \"123456\",\n  \"role\": \"CASHIER\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/users/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbXJlc2giLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3Njg0NzExMDEsImV4cCI6MTc2ODQ3NDcwMX0.ADlASH_yDb_RasGg597Iw7FqlBUzC_SKNNlhw5q9GJE",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:2030/users/3"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
